@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="f8fd347b-c32b-4eea-92e2-532762fd3ff5" Name="喊话宏" Enabled="true">
+    <Folders>
+      <Folder Id="4b8b4e0f-8111-4456-885a-351a6394a55a" Name="辛苦了" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="辛苦了" Id="b5b84f23-9e79-4a14-a12e-2ca0b95545ce" RegularExpression="^.{14} Director 21:.{8}:40000003:00:00:00:00">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/p 辛苦啦" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="3300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:MissionName}" ExpressionTypeL="String" ExpressionR="海德林晖光歼灭战|佐迪亚克暝暗歼灭战|零式万魔殿" ExpressionTypeR="String" ConditionType="RegexNotMatch" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="读取当前任务" Id="5e21c8c2-1b3b-4b4a-a562-80105652bc68" RegularExpression="^.{14} ChatLog 00:0839::“(?&lt;Mission&gt;.*?)”任务开始。">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="MissionName" VariableExpression="${Mission}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/e ${var:MissionName}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="true" Name="赤复活喊话" Id="79760673-b373-412a-bca8-9c67092c5370" RegularExpression="^.{14} ActionEffect 15:10[a-zA-Z0-9]{6}:(?&lt;PlayerName&gt;[\w\u4e00-\u9fa5\uf900-\ufa2d]+):1D63:赤复活:10[a-zA-Z0-9]{6}:(?&lt;TargetName&gt;[\w\u4e00-\u9fa5\uf900-\ufa2d]+)">
+        <Actions>
+          <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/p 赤复活 【${TargetName}】，请等待合适时机接受复活。赤魔剩余蓝量：&lt;mp&gt;。" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="复活喊话" Id="7d1e0eb5-5bad-4d9c-909a-70da0c11dc3d" RegularExpression="^.{14} ActionEffect 15:10[a-zA-Z0-9]{6}:(?&lt;PlayerName&gt;[\w\u4e00-\u9fa5\uf900-\ufa2d]+):(7D:复活|E13:生辰|AD:复生|5EDF:复苏):10[a-zA-Z0-9]{6}:(?&lt;TargetName&gt;[\w\u4e00-\u9fa5\uf900-\ufa2d]+)">
+        <Actions>
+          <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/p 已复活【${TargetName}】，请等待合适时机接受复活。即刻咏唱CD：&lt;recast.即刻咏唱&gt;" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="无敌喊话" Id="d2ed7a7b-ec22-4375-9084-1d98273f98f9" RegularExpression="^.{14} ActionEffect 15:10[a-zA-Z0-9]{6}:(?&lt;PlayerName&gt;[\w\u4e00-\u9fa5\uf900-\ufa2d]+):(1E:神圣领域|2B:死斗|E36:行尸走肉|3F18:超火流星)">
+        <Actions>
+          <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/p 无敌已开，奶妈请注意。" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="退避喊话" Id="3b303f46-73c5-4ab9-b062-d68bac99e1d4" RegularExpression="^.{14} ActionEffect 15:10[a-zA-Z0-9]{6}:(?&lt;PlayerName&gt;[\w\u4e00-\u9fa5\uf900-\ufa2d]+):1D71:退避">
+        <Actions>
+          <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/p 已退避。" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
