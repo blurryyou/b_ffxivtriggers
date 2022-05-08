@@ -111,7 +111,7 @@
           <ConditionSingle Enabled="true" ExpressionL="${PlayerName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
         </Condition>
       </Trigger>
-      <Trigger Enabled="true" Source="FFXIVNetwork" Name="防被踢" Id="fcc6cccf-b13c-4520-b51c-24800574a46f" RegularExpression="^.{14} ChatLog 00:003C::一段时间内没有进行任何操作，即将切断与服务器的连接。$">
+      <Trigger Enabled="true" Name="防被踢" Id="fcc6cccf-b13c-4520-b51c-24800574a46f" RegularExpression="^.{14} ChatLog 00:003C::一段时间内没有进行任何操作，即将切断与服务器的连接。$">
         <Actions>
           <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="32" KeyPressWindow="最终幻想XIV" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="KeyPress">
             <Condition Enabled="false" Grouping="Or" />
