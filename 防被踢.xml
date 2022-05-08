@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedTrigger Enabled="true" Name="防被踢" Id="418c6c94-cac6-4c34-98ab-eafd2864cf2a" RegularExpression="^.{14} ChatLog 00:0039::一段时间内没有进行任何操作，已经自动切换为离开状态。$">
+    <Actions>
+      <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="27" KeyPressWindow="最终幻想XIV" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="KeyPress" ExecutionDelayExpression="5*1000">
+        <Condition Enabled="false" Grouping="Or" />
+      </Action>
+      <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="32" KeyPressWindow="最终幻想XIV" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="KeyPress" ExecutionDelayExpression="1*1000">
+        <Condition Enabled="false" Grouping="Or" />
+      </Action>
+      <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="32" KeyPressWindow="最终幻想XIV" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="KeyPress" ExecutionDelayExpression="1*1000">
+        <Condition Enabled="false" Grouping="Or" />
+      </Action>
+    </Actions>
+    <Condition Enabled="false" Grouping="Or" />
+    <Conditions />
+  </ExportedTrigger>
+</TriggernometryExport>
